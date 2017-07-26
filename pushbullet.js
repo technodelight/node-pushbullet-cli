@@ -36,7 +36,7 @@ module.exports = function(cb) {
     if (response.devices) {
       response.devices.forEach(function (device) {
         if (device.active && device.kind === 'android') {
-          pusher.note(device.iden, 'Terminal Note', text.toString(), function(error, response) {
+          pusher.note(device.iden, osenv.hostname(), text.toString(), function(error, response) {
             if (error) {
               throw error;
             }
